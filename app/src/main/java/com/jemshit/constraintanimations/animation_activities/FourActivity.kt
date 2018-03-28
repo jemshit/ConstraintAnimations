@@ -17,6 +17,8 @@ class FourActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_four)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         setupAnimations()
     }
 
@@ -43,5 +45,6 @@ class FourActivity : AppCompatActivity() {
         transition.interpolator = OvershootInterpolator()
         TransitionManager.beginDelayedTransition(shoppingRoot, transition)
     }
+
 }
 

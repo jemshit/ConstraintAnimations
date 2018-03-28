@@ -5,10 +5,13 @@ import android.support.constraint.ConstraintSet
 import android.support.constraint.solver.widgets.ConstraintWidget
 import android.support.transition.TransitionManager
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View.GONE
 import com.jemshit.constraintanimations.R
 import com.jemshit.constraintanimations.toPx
 import kotlinx.android.synthetic.main.activity_one.*
+
 
 // Ref: http://www.uwanttolearn.com/android/constraint-layout-animations-dynamic-constraints-ui-java-hell/
 // Tip: use separate layout for different states of view
@@ -27,15 +30,16 @@ class OneActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_one)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Tip: you can think like this API will remember all the constraints which we implement in XML
         applyConstraintSet.clone(constraintLayout)
         resetConstraintSet.clone(constraintLayout)
 
-        animate6()
+        animate1()
 
         resetButton.setOnClickListener {
-            TransitionManager.beginDelayedTransition(constraintLayout)  // ToDo: can be extension for .applyTo
+            TransitionManager.beginDelayedTransition(constraintLayout)  // ToDo: can be extension for .applyTo maybe
             resetConstraintSet.applyTo(constraintLayout)
         }
     }
@@ -180,4 +184,75 @@ class OneActivity : AppCompatActivity() {
             applyConstraintSet.applyTo(constraintLayout)
         }
     }
+
+
+    // region menu
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        if (menu == null) return false
+        val inflater = menuInflater
+        inflater.inflate(R.menu.one_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item == null) return false
+
+        val itemId = item.itemId
+
+        when (itemId) {
+            R.id.item_option_1 -> {
+                applyConstraintSet.clone(this@OneActivity, R.layout.activity_one)
+                resetConstraintSet.clone(this@OneActivity, R.layout.activity_one)
+                resetButton.performClick()
+                animate1()
+                return true
+            }
+            R.id.item_option_2 -> {
+                applyConstraintSet.clone(this@OneActivity, R.layout.activity_one)
+                resetConstraintSet.clone(this@OneActivity, R.layout.activity_one)
+                resetButton.performClick()
+                animate2()
+                return true
+            }
+            R.id.item_option_3 -> {
+                applyConstraintSet.clone(this@OneActivity, R.layout.activity_one)
+                resetConstraintSet.clone(this@OneActivity, R.layout.activity_one)
+                resetButton.performClick()
+                animate3()
+                return true
+            }
+            R.id.item_option_4 -> {
+                applyConstraintSet.clone(this@OneActivity, R.layout.activity_one)
+                resetConstraintSet.clone(this@OneActivity, R.layout.activity_one)
+                resetButton.performClick()
+                animate4()
+                return true
+            }
+            R.id.item_option_5 -> {
+                applyConstraintSet.clone(this@OneActivity, R.layout.activity_one)
+                resetConstraintSet.clone(this@OneActivity, R.layout.activity_one)
+                resetButton.performClick()
+                animate5()
+                return true
+            }
+            R.id.item_option_6 -> {
+                applyConstraintSet.clone(this@OneActivity, R.layout.activity_one)
+                resetConstraintSet.clone(this@OneActivity, R.layout.activity_one)
+                resetButton.performClick()
+                animate6()
+                return true
+            }
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+            else -> {
+                applyConstraintSet.clone(this@OneActivity, R.layout.activity_one)
+                resetConstraintSet.clone(this@OneActivity, R.layout.activity_one)
+                resetButton.performClick()
+                return true
+            }
+        }
+    }
+    // endregion
 }

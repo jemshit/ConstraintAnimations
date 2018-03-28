@@ -3,10 +3,7 @@ package com.jemshit.constraintanimations
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.jemshit.constraintanimations.animation_activities.FourActivity
-import com.jemshit.constraintanimations.animation_activities.OneActivity
-import com.jemshit.constraintanimations.animation_activities.ThreeActivity
-import com.jemshit.constraintanimations.animation_activities.TwoActivity
+import com.jemshit.constraintanimations.animation_activities.*
 import kotlinx.android.synthetic.main.activity_landing.*
 
 class LandingActivity : AppCompatActivity() {
@@ -26,6 +23,9 @@ class LandingActivity : AppCompatActivity() {
         }
         buttonFourActivity.setOnClickListener {
             startActivity(Intent(this, FourActivity::class.java))
+        }
+        buttonFiveActivity.setOnClickListener {
+            startActivity(Intent(this, FiveActivity::class.java))
         }
     }
 }

@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".LandingActivity">
+        <activity
+            android:name=".LandingActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -18,13 +20,30 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".animation_activities.OneActivity"/>
+        <activity
+            android:name=".animation_activities.OneActivity"
+            android:parentActivityName=".LandingActivity"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".animation_activities.TwoActivity"/>
+        <activity
+            android:name=".animation_activities.TwoActivity"
+            android:parentActivityName=".LandingActivity"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".animation_activities.ThreeActivity"/>
+        <activity
+            android:name=".animation_activities.ThreeActivity"
+            android:parentActivityName=".LandingActivity"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".animation_activities.FourActivity"/>
+        <activity
+            android:name=".animation_activities.FourActivity"
+            android:parentActivityName=".LandingActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".animation_activities.FiveActivity"
+            android:parentActivityName=".LandingActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

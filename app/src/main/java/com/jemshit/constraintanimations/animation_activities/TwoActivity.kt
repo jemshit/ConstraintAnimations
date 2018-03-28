@@ -25,6 +25,7 @@ class TwoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_two)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         applyConstraintSet.clone(constraintLayout)
         resetConstraintSet.clone(constraintLayout)
