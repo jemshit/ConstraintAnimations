@@ -52,5 +52,22 @@ class FiveActivity : AppCompatActivity() {
         constraintSet.applyTo(constraint)
     }
 
+
+    // Ref: https://robinhood.engineering/beautiful-animations-using-android-constraintlayout-eee5b72ecae3
+    // Tip: duplicate xml style
+    //    If you are defining the alternate XML file specifically for transition purposes, you can actually
+    //    omit all of the non-layout styling attributes (e.g. textSize). The ConstraintSet simply captures
+    //    all of the layout based constraints on each view and discard other attributes. This way, you won’t
+    //    actually have to maintain a consistent styling across the two files (e.g. if you change the textSize
+    //    on the original XML, you don’t have to do this in the alternate XML).
+
+    // Tip: animates only layout constraint changes:
+    //    ConstraintLayout only animates layout related changes. You can’t encode other changes in an
+    //    alternate XML file (e.g. elevation change, text change) and expect the framework to do everything
+    //    for you. ConstraintSet.clone(...) only copies over the layout/constraint changes and discards everything else.
+    //    if you dynamically change a layout based attribute for an element inside ConstraintLayout
+    //    (e.g. translationY), the animation won’t take the updated attribute into account. This means
+    //    that when the animation is run, the attribute will instantly revert back to the original value,
+    //    and then animate to the new value.
 }
 

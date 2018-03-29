@@ -67,7 +67,7 @@ class TwoActivity : AppCompatActivity() {
     // Tip: clone
     //    But when you clone the constraints, it takes only the layout related constraints and attributes
     //    such as layout width and height. But not the styling attributes — such as textSize and stuff.
-    //    So you need not replicate the exact styling in all the alternate layouts.
+    //    So you need NOT replicate the exact styling in all the alternate layouts.
 
     // Tip: TransitionManager  
     //    this class manages the set of transitions that fire when there is a change of Scene.
